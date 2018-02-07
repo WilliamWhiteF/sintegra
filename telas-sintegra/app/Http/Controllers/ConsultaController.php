@@ -27,8 +27,8 @@ class ConsultaController extends Controller
             return view('consulta.info', compact('consultaJson'));
         }
 
-        $apiUrl = Config::get('contants.api_sintegra_url');
-        $consultaJson = Curl::to("{$apiUrl}/api/sintegra/es/{$cnpj}")
+        // $apiUrl = Config::get('contants.api_sintegra_url');
+        $consultaJson = Curl::to("http://localhost:8000/api/sintegra/es/{$cnpj}")
             ->withData(['api_token' => $user->api_token])
             ->get();
 
